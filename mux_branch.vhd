@@ -6,6 +6,7 @@ entity	mux_branch	is
 	port	
 	(
 		Branch :	in	 	std_logic;
+		zero :	in	 	std_logic;
 		mux_in_branch	 :	in	std_logic_vector(31	downto	0);
 		mux_in_pc_4	 :	in	std_logic_vector(31	downto	0);
 		mux_out	 :	out	std_logic_vector(31	downto	0)
@@ -13,12 +14,17 @@ entity	mux_branch	is
 end	entity;
 
 architecture	behavioral	of	mux_branch	is 
+
+signal mux_select: std_logic;
+
 begin
 	mux_proc: process	(Branch,mux_in_branch,mux_in_pc_4)
 	
 	begin
 	
-	case Branch is
+	mux_select <= Branch and zero;
+	
+	case mux_select is
 		when	'0'	=>	mux_out	<=	mux_in_pc_4;
 		when	'1'	=>	mux_out	<=	mux_in_branch;
 		when	others	=>	mux_out	<=	(others	=>	'X');	
