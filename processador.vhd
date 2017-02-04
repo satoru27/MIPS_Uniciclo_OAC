@@ -3,6 +3,9 @@ use	ieee.std_logic_1164.all;
 use	ieee.numeric_std.all;
 
 entity	processador	is
+
+	generic	(WSIZE	:	natural	:=	32);
+			
 	port	
 	(	
 		clk : in std_logic;
@@ -23,13 +26,50 @@ entity	processador	is
 	
 	
 	
-	reg1 : out	std_logic_vector(4	downto	0);
-	reg2 : out	std_logic_vector(4	downto	0);
+	reg_1 : out	std_logic_vector(4	downto	0);
+	reg_2 : out	std_logic_vector(4	downto	0);
 	wreg : out	std_logic_vector(4	downto	0);
 	entrA: out	std_logic_vector(31	downto	0);
 	entrB: out	std_logic_vector(31	downto	0);
 	
-	branch_endereco: out	std_logic_vector(31	downto	0)
+	branch_endereco: out	std_logic_vector(31	downto	0);
+	
+						--mostrar registradores
+		sreg0	 :	out	std_logic_vector(WSIZE-1	downto	0);
+		sreg1	 :	out	std_logic_vector(WSIZE-1	downto	0);
+		sreg2	 :	out	std_logic_vector(WSIZE-1	downto	0);
+		sreg3	 :	out	std_logic_vector(WSIZE-1	downto	0);
+		sreg4	 :	out	std_logic_vector(WSIZE-1	downto	0);
+		sreg5	 :	out	std_logic_vector(WSIZE-1	downto	0);
+		sreg6	 :	out	std_logic_vector(WSIZE-1	downto	0);
+		sreg7	 :	out	std_logic_vector(WSIZE-1	downto	0);
+		sreg8	 :	out	std_logic_vector(WSIZE-1	downto	0);
+		sreg9	 :	out	std_logic_vector(WSIZE-1	downto	0);
+		sreg10	 :	out	std_logic_vector(WSIZE-1	downto	0);
+		sreg11	 :	out	std_logic_vector(WSIZE-1	downto	0);
+		sreg12	 :	out	std_logic_vector(WSIZE-1	downto	0);
+		sreg13	 :	out	std_logic_vector(WSIZE-1	downto	0);
+		sreg14	 :	out	std_logic_vector(WSIZE-1	downto	0);
+		sreg15	 :	out	std_logic_vector(WSIZE-1	downto	0);
+		sreg16	 :	out	std_logic_vector(WSIZE-1	downto	0);
+		sreg17	 :	out	std_logic_vector(WSIZE-1	downto	0);
+		sreg18	 :	out	std_logic_vector(WSIZE-1	downto	0);
+		sreg19	 :	out	std_logic_vector(WSIZE-1	downto	0);
+		sreg20	 :	out	std_logic_vector(WSIZE-1	downto	0);
+		sreg21	 :	out	std_logic_vector(WSIZE-1	downto	0);
+		sreg22	 :	out	std_logic_vector(WSIZE-1	downto	0);
+		sreg23	 :	out	std_logic_vector(WSIZE-1	downto	0);
+		sreg24	 :	out	std_logic_vector(WSIZE-1	downto	0);
+		sreg25	 :	out	std_logic_vector(WSIZE-1	downto	0);
+		sreg26	 :	out	std_logic_vector(WSIZE-1	downto	0);
+		sreg27	 :	out	std_logic_vector(WSIZE-1	downto	0);
+		sreg28	 :	out	std_logic_vector(WSIZE-1	downto	0);
+		sreg29	 :	out	std_logic_vector(WSIZE-1	downto	0);
+		sreg30	 :	out	std_logic_vector(WSIZE-1	downto	0);
+		sreg31	 :	out	std_logic_vector(WSIZE-1	downto	0)
+		
+		---------------------------------------
+		
 		
 );
 
@@ -135,7 +175,42 @@ component	breg	is
 		rd :	in	 	std_logic_vector(ISIZE-1	downto	0);
 		d_in :	in		std_logic_vector(WSIZE-1	downto	0);
 		regA	 :	out	std_logic_vector(WSIZE-1	downto	0);
-		regB	 :	out	std_logic_vector(WSIZE-1	downto	0)
+		regB	 :	out	std_logic_vector(WSIZE-1	downto	0);
+		
+			--mostrar registradores
+		reg0	 :	out	std_logic_vector(WSIZE-1	downto	0);
+		reg1	 :	out	std_logic_vector(WSIZE-1	downto	0);
+		reg2	 :	out	std_logic_vector(WSIZE-1	downto	0);
+		reg3	 :	out	std_logic_vector(WSIZE-1	downto	0);
+		reg4	 :	out	std_logic_vector(WSIZE-1	downto	0);
+		reg5	 :	out	std_logic_vector(WSIZE-1	downto	0);
+		reg6	 :	out	std_logic_vector(WSIZE-1	downto	0);
+		reg7	 :	out	std_logic_vector(WSIZE-1	downto	0);
+		reg8	 :	out	std_logic_vector(WSIZE-1	downto	0);
+		reg9	 :	out	std_logic_vector(WSIZE-1	downto	0);
+		reg10	 :	out	std_logic_vector(WSIZE-1	downto	0);
+		reg11	 :	out	std_logic_vector(WSIZE-1	downto	0);
+		reg12	 :	out	std_logic_vector(WSIZE-1	downto	0);
+		reg13	 :	out	std_logic_vector(WSIZE-1	downto	0);
+		reg14	 :	out	std_logic_vector(WSIZE-1	downto	0);
+		reg15	 :	out	std_logic_vector(WSIZE-1	downto	0);
+		reg16	 :	out	std_logic_vector(WSIZE-1	downto	0);
+		reg17	 :	out	std_logic_vector(WSIZE-1	downto	0);
+		reg18	 :	out	std_logic_vector(WSIZE-1	downto	0);
+		reg19	 :	out	std_logic_vector(WSIZE-1	downto	0);
+		reg20	 :	out	std_logic_vector(WSIZE-1	downto	0);
+		reg21	 :	out	std_logic_vector(WSIZE-1	downto	0);
+		reg22	 :	out	std_logic_vector(WSIZE-1	downto	0);
+		reg23	 :	out	std_logic_vector(WSIZE-1	downto	0);
+		reg24	 :	out	std_logic_vector(WSIZE-1	downto	0);
+		reg25	 :	out	std_logic_vector(WSIZE-1	downto	0);
+		reg26	 :	out	std_logic_vector(WSIZE-1	downto	0);
+		reg27	 :	out	std_logic_vector(WSIZE-1	downto	0);
+		reg28	 :	out	std_logic_vector(WSIZE-1	downto	0);
+		reg29	 :	out	std_logic_vector(WSIZE-1	downto	0);
+		reg30	 :	out	std_logic_vector(WSIZE-1	downto	0);
+		reg31	 :	out	std_logic_vector(WSIZE-1	downto	0)
+		
 );
 end	component;
 
@@ -295,6 +370,41 @@ signal mux_branch_out : std_logic_vector(31	downto	0);
 signal write_data :std_logic_vector(31	downto	0):= (others => '0');
 signal saida_mem_dados :std_logic_vector(31	downto	0):= (others => '0');
 
+----------------------------------------------------
+
+signal 		treg0	 :		std_logic_vector(WSIZE-1	downto	0);
+signal 		treg1	 :		std_logic_vector(WSIZE-1	downto	0);
+signal 		treg2	 :		std_logic_vector(WSIZE-1	downto	0);
+signal 		treg3	 :		std_logic_vector(WSIZE-1	downto	0);
+signal 		treg4	 :		std_logic_vector(WSIZE-1	downto	0);
+signal 		treg5	 :		std_logic_vector(WSIZE-1	downto	0);
+signal 		treg6	 :		std_logic_vector(WSIZE-1	downto	0);
+signal 		treg7	 :		std_logic_vector(WSIZE-1	downto	0);
+signal 		treg8	 :		std_logic_vector(WSIZE-1	downto	0);
+signal 		treg9	 :		std_logic_vector(WSIZE-1	downto	0);
+signal 		treg10	 :		std_logic_vector(WSIZE-1	downto	0);
+signal 		treg11	 :		std_logic_vector(WSIZE-1	downto	0);
+signal 		treg12	 :		std_logic_vector(WSIZE-1	downto	0);
+signal 		treg13	 :		std_logic_vector(WSIZE-1	downto	0);
+signal 		treg14	 :		std_logic_vector(WSIZE-1	downto	0);
+signal 		treg15	 :		std_logic_vector(WSIZE-1	downto	0);
+signal 		treg16	 :		std_logic_vector(WSIZE-1	downto	0);
+signal 		treg17	 :		std_logic_vector(WSIZE-1	downto	0);
+signal 		treg18	 :		std_logic_vector(WSIZE-1	downto	0);
+signal 		treg19	 :		std_logic_vector(WSIZE-1	downto	0);
+signal 		treg20	 :		std_logic_vector(WSIZE-1	downto	0);
+signal 		treg21	 :		std_logic_vector(WSIZE-1	downto	0);
+signal 		treg22	 :		std_logic_vector(WSIZE-1	downto	0);
+signal 		treg23	 :		std_logic_vector(WSIZE-1	downto	0);
+signal 		treg24	 :		std_logic_vector(WSIZE-1	downto	0);
+signal 		treg25	 :		std_logic_vector(WSIZE-1	downto	0);
+signal 		treg26	 :		std_logic_vector(WSIZE-1	downto	0);
+signal 		treg27	 :		std_logic_vector(WSIZE-1	downto	0);
+signal 		treg28	 :		std_logic_vector(WSIZE-1	downto	0);
+signal 		treg29	 :		std_logic_vector(WSIZE-1	downto	0);
+signal 		treg30	 :		std_logic_vector(WSIZE-1	downto	0);
+signal 		treg31	 :		std_logic_vector(WSIZE-1	downto	0);
+
 
 begin
 
@@ -374,7 +484,40 @@ reg_pm:	breg	port map
 		rd =>wr_reg,
 		d_in =>write_data,
 		regA	 =>from_breg_A,
-		regB	 =>from_breg_B
+		regB	 =>from_breg_B,
+		
+		reg0	 =>treg0,
+		reg1	 =>treg1,
+		reg2	 =>treg2,
+		reg3	 =>treg3,
+		reg4	 =>treg4,
+		reg5	 =>treg5,
+		reg6	 =>treg6,
+		reg7	 =>treg7,
+		reg8	 =>treg8,
+		reg9	 =>treg9,
+		reg10	 =>treg10,
+		reg11	 =>treg11,
+		reg12	 =>treg12,
+		reg13	 =>treg13,
+		reg14	 =>treg14,
+		reg15	 =>treg15,
+		reg16	 =>treg16,
+		reg17	 =>treg17,
+		reg18	 =>treg18,
+		reg19	 =>treg19,
+		reg20	 =>treg20,
+		reg21	 =>treg21,
+		reg22	 =>treg22,
+		reg23	 =>treg23,
+		reg24	 =>treg24,
+		reg25	 =>treg25,
+		reg26	 =>treg26,
+		reg27	 =>treg27,
+		reg28	 =>treg28,
+		reg29	 =>treg29,
+		reg30	 =>treg30,
+		reg31	 =>treg31
 );
 
 exts_pm:	extensao_sinal	 port	map
@@ -496,13 +639,50 @@ mwb_pm:	mux_wb	port map
 
 	
 	
-	reg1 <= instruction(25 downto 21);
-	reg2 <= instruction(20 downto 16);
+	reg_1 <= instruction(25 downto 21);
+	reg_2 <= instruction(20 downto 16);
 	wreg <= wr_reg;
 	entrA <= ula_A;
 	entrB <= ula_B;
 	
 	
 	branch_endereco <=end_branch;
+	
+	
+		sreg0	 <=treg0;
+		sreg1	 <=treg1;
+		sreg2	 <=treg2;
+		sreg3	 <=treg3;
+		sreg4	 <=treg4;
+		sreg5	 <=treg5;
+		sreg6	 <=treg6;
+		sreg7	 <=treg7;
+		sreg8	 <=treg8;
+		sreg9	 <=treg9;
+		sreg10	 <=treg10;
+		sreg11	 <=treg11;
+		sreg12	 <=treg12;
+		sreg13	 <=treg13;
+		sreg14	 <=treg14;
+		sreg15	 <=treg15;
+		sreg16	 <=treg16;
+		sreg17	 <=treg17;
+		sreg18	 <=treg18;
+		sreg19	 <=treg19;
+		sreg20	 <=treg20;
+		sreg21	 <=treg21;
+		sreg22	 <=treg22;
+		sreg23	 <=treg23;
+		sreg24	 <=treg24;
+		sreg25	 <=treg25;
+		sreg26	 <=treg26;
+		sreg27	 <=treg27;
+		sreg28	 <=treg28;
+		sreg29	 <=treg29;
+		sreg30	 <=treg30;
+		sreg31	 <=treg31;
+	
+	
+	
 
 end	architecture	behavioral;
