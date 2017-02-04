@@ -37,9 +37,9 @@ architecture	behavioral	of	ula	is
 			when	ULA_SLT	=>	a32	<=	(0	=>	tmp(31),	others	=>	'0');	
 			when	ULA_NOR	=>	a32	<=	A	nor	B;
 			when	ULA_XOR	=>	a32	<=	A	xor	B;
-			when	ULA_SLL	=>	a32	<=	std_logic_vector(shift_left(signed(A),to_integer(signed(B))));
-			when	ULA_SRL	=>	a32	<=	std_logic_vector(shift_right(unsigned(A),to_integer(signed(B))));
-			when	ULA_SRA	=>	a32	<=	std_logic_vector(shift_right(signed(A),to_integer(signed(B))));
+			when	ULA_SLL	=>	a32	<=	std_logic_vector(shift_left(signed(B),to_integer(signed(A))));
+			when	ULA_SRL	=>	a32	<=	std_logic_vector(shift_right(unsigned(B),to_integer(signed(A))));
+			when	ULA_SRA	=>	a32	<=	std_logic_vector(shift_right(signed(B),to_integer(signed(A))));
 			when	others	=>	a32	<=	(others	=>	'X');	
 		end	case;
 	end	process;

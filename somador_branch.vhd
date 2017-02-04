@@ -16,16 +16,16 @@ architecture	behavioral	of	somador_branch	is
 signal tmp: std_logic_vector(31	downto	0);
 
 begin
-	branch: process	(pc_mais_4,extensao_offset)
+	branch: process	(pc_mais_4,extensao_offset,tmp)
 	begin	
 	
 	tmp<=std_logic_vector(shift_left(signed(extensao_offset), 2));
 	
 	--evitar possiveis problemas de sinal em um endereco longo?
 	if (extensao_offset(31) = '1') then
-		branch_address <= std_logic_vector(unsigned(pc_mais_4) - unsigned(extensao_offset));
+		branch_address <= std_logic_vector(unsigned(pc_mais_4) - unsigned(tmp));
 	else
-		branch_address <= std_logic_vector(unsigned(pc_mais_4) + unsigned(extensao_offset));
+		branch_address <= std_logic_vector(unsigned(pc_mais_4) + unsigned(tmp));
 	end if;
 	
 	end	process;

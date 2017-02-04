@@ -13,25 +13,23 @@ end	entity;
 
 architecture	behavioral	of	shift_jump	is 
 
-signal	tmp_pc	:	std_logic_vector(31	downto	0);
-signal	tmp_j	:	std_logic_vector(31	downto	0);
+--signal	tmp_pc	:	std_logic_vector(31	downto	0);
+--signal	tmp_j	:	std_logic_vector(31	downto	0);
 
 begin
 
 	shift: process	(jump_in,pc_mais_4)
 	begin	
 	
-	tmp_pc <= (31 =>pc_mais_4(3),
-				  30 =>pc_mais_4(2),
-				  29 =>pc_mais_4(1),
-				  28 =>pc_mais_4(0),
-				  others => '0');
+	--tmp_pc <= pc_mais_4 & x"0000000"
 				  
-	tmp_j <= "000000" & jump_in;
+	--tmp_j <= "0000" & jump_in & "00";			  
+	--tmp_j <= pc_mais_4 & jump_in & "00";
 	
-	tmp_j<=std_logic_vector(shift_left(unsigned(tmp_j), 2));
+	--tmp_j<=std_logic_vector(shift_left(unsigned(tmp_j), 2));
 	
-	jump_address <= tmp_pc and tmp_j;
+	--jump_address <= tmp_pc or tmp_j;
+	jump_address <= pc_mais_4 & jump_in & "00";
 	
 	end	process;
 end	architecture	behavioral;
